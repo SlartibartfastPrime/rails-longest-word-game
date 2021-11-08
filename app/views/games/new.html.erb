@@ -1,0 +1,15 @@
+<h1>New Game</h1>
+<p><% @letters.each do |letter| %>
+<span><%= letter %></span>
+<% end %>
+</p>
+
+<div class="input-group mb-3">
+<p>What's the longest word you can find with those letters ?</p>
+<form action="/score" method="post">
+  <input type="text" class="form-control" placeholder="Your answer..." name="answer">
+  <%= hidden_field_tag :letters, @letters %>
+  <span><input type="submit" class="btn btn-primary" value="Play"></span>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
+</div>
